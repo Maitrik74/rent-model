@@ -39,9 +39,8 @@ export default async function getListingById(params: IParams) {
                     listing.user.emailVerified?.toDateString() || null,
             },
         };
-    } catch (error: any) {
-        console.error("Error in getListingById:", error.message);
-        throw new Error(error.message || "Something went wrong");
+    } catch {
+        throw new Error;
     }
 }
 

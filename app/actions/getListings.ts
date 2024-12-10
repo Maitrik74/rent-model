@@ -26,7 +26,7 @@ export default async function getListings(
             category
         } = params;
 
-        let query: any = {};
+        const query = {};
 
         if (userId) {
             query.userId = userId;
@@ -89,7 +89,7 @@ export default async function getListings(
         createdAt: listing.createdAt.toISOString(),
     }));    
     return safeListings;
-    } catch (error: any) {
-        throw new Error(error);
+    } catch {
+        throw new Error;
     }
 }

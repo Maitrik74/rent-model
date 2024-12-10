@@ -8,11 +8,11 @@ import ListingHead from "@/app/components/listings/ListingHead";
 import ListingInfo from "@/app/components/listings/ListingInfo";
 import useLoginModal from "@/app/hooks/useLoginModal";
 import { useRouter } from "next/navigation";
-import { eachDayOfInterval, differenceInDays, differenceInCalendarDays } from "date-fns";
+import { eachDayOfInterval, differenceInCalendarDays } from "date-fns";
 import axios from "axios";
 import { toast } from "react-hot-toast";
 import ListingReservation from "@/app/components/listings/ListingReservation";
-import { DateRange, Range } from "react-date-range";
+import { Range } from "react-date-range";
 
 const initialDateRange = {
     startDate: new Date(),
@@ -39,7 +39,7 @@ const ListingClient: React.FC<ListingClientProps> = ({
     const disabledDates = useMemo(() => {
         let dates: Date[] = [];
 
-        reservations.forEach((reservation: any) => {
+        reservations.forEach((reservation) => {
             const range = eachDayOfInterval({
                 start: new Date(reservation.startDate),
                 end: new Date(reservation.endDate)
